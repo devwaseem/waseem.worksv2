@@ -18,8 +18,8 @@ const MainLayout = ({children, RevealView}) => {
       return;
     }
     let scroll;
-    import('locomotive-scroll').then(()=> {
-      scroll = new LocomotiveScroll({
+    import('locomotive-scroll').then((locomotiveModule)=> {
+      scroll = new locomotiveModule.default({
         el: containerRef.current,
         smooth: true,
         smartphone: {
