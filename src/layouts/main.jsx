@@ -7,35 +7,39 @@ import LogoWhite from '../images/logo-white.svg'
 import LogoBlack from '../images/logo-black.svg'
 import LinkTextWithArrow from '../components/LinkTextWithArrow';
 import Cursor from '../components/Cursor'
-import LocomotiveScroll from 'locomotive-scroll';
 
 const MainLayout = ({children, RevealView}) => {
   const [percentageScrolled, setPercentageScrolled] = useState(0);
   const containerRef = useRef(null);
   const [isRevealComplete, setRevealComplete] = useState(false);
   
-
-
   useEffect(() => {
-    var scroll = new LocomotiveScroll({
-      el: containerRef.current,
-      smooth: true,
-      smartphone: {
+    if (typeof window === 'undefined') {
+      return;
+    }
+    let scroll;
+    import('locomotive-scroll').then(()=> {
+      scroll = new LocomotiveScroll({
+        el: containerRef.current,
         smooth: true,
-      },
-      tablet: {
-        smooth: true,
-      }
-    })
+        smartphone: {
+          smooth: true,
+        },
+        tablet: {
+          smooth: true,
+        }
+      })
 
-    scroll.on('scroll', (args) => {
-      const { limit, scroll } = args;
-      const percentage = Math.min(1.0, (scroll.y/limit.y).toFixed(3))
-      setPercentageScrolled(percentage);
+      scroll.on('scroll', (args) => {
+        const { limit, scroll } = args;
+        const percentage = Math.min(1.0, (scroll.y/limit.y).toFixed(3))
+        setPercentageScrolled(percentage);
+      })
     })
+    
 
   return () => {
-    scroll.destroy()
+    scroll?.destroy()
   }
 
   }, []);
