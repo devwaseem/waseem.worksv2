@@ -1,7 +1,18 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "waseem.works",
+    siteUrl: "https://waseem.works",
+    title: `Waseem | iOS App Developer`,
+    description: `iOS Developer portfolio`,
+    author: `@iamwaseem99`,
+    email: `hello@waseem.works`,
+    phone: `+918248899344`,
+    social: {
+      github: `https://github.com/devwaseem`,
+      twitter: `https://twitter.com/iamwaseem99`,
+      linkedin: `https://www.linkedin.com/in/devwaseem/`,
+      instagram: `https://www.instagram.com/dvlp.er/`,
+      Facebook: `https://www.facebook.com/dvlprwaseem`,
+    }
   },
   plugins: [
     "gatsby-plugin-styled-components",
