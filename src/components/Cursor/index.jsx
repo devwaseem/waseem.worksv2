@@ -2,11 +2,11 @@ import React, {useEffect, useState} from 'react'
 import {useLocation} from '@reach/router'
 import classNames from "classnames";
 import './index.css'
+import {isMobile} from 'react-device-detect';
 import TopRightArrow from '../../images/arrow-top-right.svg'
 
 
 const Cursor = () => {
-    const [delayedPosition, setDelayedPosition] = useState({x: 0, y: 0});
     const [position, setPosition] = useState({x: 0, y: 0});
     const [hidden, setHidden] = useState(false);
     const [clicked, setClicked] = useState(false);
@@ -22,17 +22,17 @@ const Cursor = () => {
     const handleLinkHoverEvents = () => {
       document.querySelectorAll('*[data-cursor-type="hover"]').forEach(el => {
         el.addEventListener("mousemove", (e) => {
-          const {offsetX: x, offsetY: y} = e,
-          {offsetWidth: width, offsetHeight: height} = el
+          // const {offsetX: x, offsetY: y} = e,
+          // {offsetWidth: width, offsetHeight: height} = el
           
-          const move = 5,
-          xMove = x / width * ( move * 2 ) - move,
-          yMove = y / height * ( move * 2 ) - move
-          el.style.transform = `translate(${xMove}px,${yMove}px)`
+          // const move = 5,
+          // xMove = x / width * ( move * 2 ) - move,
+          // yMove = y / height * ( move * 2 ) - move
+          // el.style.transform = `translate(${xMove}px,${yMove}px)`
           setLinkHovered(true)
         });
         el.addEventListener("mouseleave", (e) => {
-          e.target.style.transform = ''
+          // e.target.style.transform = ''
           setLinkHovered(false)
         });
       });
@@ -69,60 +69,33 @@ const Cursor = () => {
     const onMouseEnter = () => {
       setHidden(false);
     };
-      
-    const cursorOuterClasses = classNames(
-      'cursor',
-      {
-        'cursor--link-hovered': linkHovered,
-        'cursor--clicked': clicked,
-        'cursor--hidden': hidden
-      }
-    );    
-    
-    const cursorInnerClasses = classNames(
+          
+    const cursorClasses = classNames(
       "cursor-inner",
       {
+        'cursor--clicked': clicked,
+        'cursor--link-hovered': linkHovered,
         'cursor--hidden': hidden
+        
       }
     );  
   
     const onMouseMove = (e) => {
       var position = {x: e.clientX, y: e.clientY}
       setPosition(position);
-      setTimeout(()=>{
-        setDelayedPosition(position)
-      },100)
     };                                                               
 
-    const isMobile = () => {
-      const ua = navigator.userAgent;
-      return /Android|Mobi/i.test(ua);
-    };
+    if(isMobile) {
+      return null;
+    }
 
     return <div>
-          <div className={cursorOuterClasses}
-                style={{
-                    left: `${delayedPosition.x}px`,
-                    top: `${delayedPosition.y}px`
-                }}
-            >
-            {
-                linkHovered &&  
-                <img 
-                  className="cursor--link-hovered-arrow"
-                  src={TopRightArrow}
-                />
-            }
-            </div>
-
-            { !linkHovered && 
-              <div className={cursorInnerClasses}
+            <div className={cursorClasses}
                 style={{
                     left: `${position.x}px`,
                     top: `${position.y}px`
                 }}
-              />
-            }
+            />
     </div>
     
   }

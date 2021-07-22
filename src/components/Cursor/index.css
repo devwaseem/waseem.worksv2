@@ -1,44 +1,38 @@
 .cursor-inner {
-    width: 5px;
-    height: 5px;
-    background-color: black;
+    width: 20px;
+    height: 20px;
+    background-color: white;
     position: fixed;
     transform: translate(-50%, -50%);
     border-radius: 100%;
     pointer-events: none;
     transition: all 100ms ease-out;
     z-index: 9999;
-    transition-property:  opacity, background-color, transform;
-}
-
-.cursor {
-    width: 30px;
-    height: 30px;
-    border: 1px solid black;
-    border-radius: 100%;
-    position: fixed;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 9999;
-    transition: all 100ms ease-out;
+    mix-blend-mode: difference;
     transition-property:  opacity, background-color, transform, width, height;
 }
 
+
 .cursor--hidden {
     opacity: 0;
+    transition-property:  opacity;
 }
 
 .cursor--clicked {
-    transform: translate(-50%, -50%) scale(0.9);
-    background-color: black;
+    width: 10px;
+    height: 10px;
+    transition: all 150ms ease-out;
+    transition-property: width, height;
 }
 
 .cursor--link-hovered {
     transform: translate(-50%, -50%);
     width: 50px;
     height: 50px;
-    background-color: black;
-    border: 2px solid black;
+    background-color: white;
+    border: 2px solid white;
+    transition: translate 100ms ease-out;
+    transition-property:  opacity, background-color, transform, width, height;
 }
 
 .cursor--link-hovered-arrow {

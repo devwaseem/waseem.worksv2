@@ -7,8 +7,12 @@ import LogoWhite from '../images/logo-white.svg'
 import LogoBlack from '../images/logo-black.svg'
 import LinkTextWithArrow from '../components/LinkTextWithArrow';
 import Cursor from '../components/Cursor'
+import Footer from '../components/footer';
+import { AnimatePresence, motion } from 'framer-motion';
 
+var scroll;
 const MainLayout = ({children, RevealView}) => {
+  const [scrollOffset, setScrollOffset] = useState(0);
   const [percentageScrolled, setPercentageScrolled] = useState(0);
   const containerRef = useRef(null);
   const [isRevealComplete, setRevealComplete] = useState(false);
@@ -17,7 +21,7 @@ const MainLayout = ({children, RevealView}) => {
     if (typeof window === 'undefined') {
       return;
     }
-    let scroll;
+    // let scroll;
     import('locomotive-scroll').then((locomotiveModule)=> {
       scroll = new locomotiveModule.default({
         el: containerRef.current,
@@ -33,6 +37,7 @@ const MainLayout = ({children, RevealView}) => {
       scroll.on('scroll', (args) => {
         const { limit, scroll } = args;
         const percentage = Math.min(1.0, (scroll.y/limit.y).toFixed(3))
+        setScrollOffset(scroll.y);
         setPercentageScrolled(percentage);
       })
     })
@@ -75,15 +80,32 @@ const MainLayout = ({children, RevealView}) => {
             data-cursor-type="hover" >
             about
           </NavLink>
-          <NavLink 
-            to='/' 
+          <NavButton
             data-cursor-type="hover" 
+            onClick={() => scroll?.scrollTo('#footer')}
           >
             contact
-          </NavLink>
+          </NavButton>
         </TopNavBar>
           {children}
+        <Footer 
+          scrollOffset={scrollOffset}
+        />
         </ContentContainer>
+        <AnimatePresence>
+          {
+            percentageScrolled > 0.2 
+            && (
+              <BackToTopButton 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => scroll?.scrollTo("top")}
+              >
+                Back to Top
+              </BackToTopButton>
+            )}
+        </AnimatePresence>
       </AppContainer>
     </>
   )
@@ -124,6 +146,11 @@ const NavLink = styled(Link)`
   } */}
 `;
 
+const NavButton = styled.p`
+  color: black;
+  margin-left: 40px;
+`;
+
 
 const LeftBar = styled.div`
   width: 64px;
@@ -133,7 +160,6 @@ const LeftBar = styled.div`
   position: fixed;
   display: flex;
   flex-direction: column;
-  
 `;
 
 const ProgressBarContainer = styled.div`
@@ -179,11 +205,25 @@ const ContactButton = styled.div`
 const ContentContainer = styled.div`
   padding-left: 12vw;
   padding-right: 10vw;
-  padding-bottom: 200px;
+  padding-bottom: 30px;
   overflow-x: hidden;
   @media(max-width: 479px) {
     padding-left: 6vw;
   }
 `;
+
+const BackToTopButton = styled(motion.button)`
+  position: fixed;
+  bottom: 4%;
+  right: 4%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  padding: 16px;
+  border: 0;
+  background-color: #F0F0F0
+`
 
 export default MainLayout;

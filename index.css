@@ -1,16 +1,26 @@
 html, body {
   background-color: white;
   color: black;
-  font-family: 'CircularStd', 'system-ui';
   width: 100vw;
   overflow-x: hidden;
+  padding: 0;
+  margin: 0;
 }
+
+input {
+  -webkit-appearance: none !important;
+  border-radius: 0;
+}
+
 
 * {
   cursor: none;
+  font-family: 'CircularStd', 'system-ui';
 }
 
-
+a {
+  color: black;
+}
 /* 
 @media (prefers-color-scheme: dark) {
   html, body {
