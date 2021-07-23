@@ -55,7 +55,7 @@ const MainLayout = ({children, RevealView}) => {
         RevealView && !isRevealComplete &&
         <RevealView onRevealComplete={() => setRevealComplete(true)}/>
       }
-      <SEO title="Waseem" ></SEO>
+      <SEO title="Waseem | iOS Developer" ></SEO>
       <Cursor/>
       <AppContainer 
         ref={containerRef}

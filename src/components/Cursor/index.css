@@ -48,3 +48,9 @@
     cursor: hidden;
     text-align: center;
 }
+
+.cursor-img {
+    object-fit: contain;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}

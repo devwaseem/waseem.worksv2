@@ -15,13 +15,13 @@ const HomeHero = () => (
       <Description>
         I specialize in crafting high performing, beautiful iOS apps that are pixel perfect and user friendly. From Quality of code to a great User Experience, I strive for everything. I've been making iOS apps for over 4 years and i share my journey on my 
         {' '}
-        <TextLink href='/' data-cursor-type="hover">
+        <TextLink href='https://www.instagram.com/dvlp.er/' target="_blank" data-cursor-type="hover">
           Instagram
         </TextLink>
         {' '}
         and i make open source apps too which is hosted on my 
         {' '}
-        <TextLink href='/' data-cursor-type="hover">
+        <TextLink href='https://github.com/devwaseem' target="_blank" data-cursor-type="hover">
           Github
         </TextLink>. 
       </Description>

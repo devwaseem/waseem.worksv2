@@ -28,6 +28,15 @@ module.exports = {
     "gatsby-plugin-sitemap",
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Waseem`,
+        short_name: `Waseem`,
+        start_url: `/`,
+        icon: 'src/images/icon.png'
+      },
+    },
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",

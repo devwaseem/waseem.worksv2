@@ -11,7 +11,7 @@ const MadeInIndiaCircularBadge = ({className, scrollOffset}) => {
     >
         <MadeInIndiaCircularImage  
           animate={{ rotate: scrollOffset / 3 }}
-          transition={{ duration: 0.1, ease: 'easeInOut' }}
+          transition={{ duration: 0.1, ease: 'easeOut' }}
           src={MadeInIndiaImage}
         />
         <IndiaImageView 

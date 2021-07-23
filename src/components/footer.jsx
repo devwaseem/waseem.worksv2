@@ -45,6 +45,7 @@ const Footer = ({ scrollOffset }) => {
           7M52464X+C5
         </LocationText>
       </LocationContainer>
+
       <ScheduleAppointmentText>
         Schedule an Appointment
       </ScheduleAppointmentText>
@@ -77,8 +78,8 @@ const Footer = ({ scrollOffset }) => {
         </AppointmentText>
         <AppointmentPicker>
           <option> </option>
-          <option>iOS App development</option>
-          <option>Webflow website development</option>
+          <option>iOS App</option>
+          <option>Webflow website</option>
         </AppointmentPicker>
         <AppointmentText>
           Get in touch with me at
@@ -111,7 +112,7 @@ const Container = styled.section`
   
 `
 
-const CurrentlyAvailableText = styled.p`
+const CurrentlyAvailableText = styled.h2`
   font-size: 52px;
   font-weight: bold;
   max-width: 750px;
@@ -148,23 +149,23 @@ const ArrowSocialLinkStyled = styled(ArrowSocialLink)`
   height: 24px;
 `;
 
-const LocationContainer = styled.p`
+const LocationContainer = styled.div`
   margin-top: 140px;
 `;
 
 const LocationText = styled.p`
   color: #58585F;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 400;
   margin: 0;
   margin-bottom: 8px;
 `;
 
 
-const ScheduleAppointmentText = styled.p`
-  margin-top: 140px;
+const ScheduleAppointmentText = styled.h2`
   font-size: 52px;
   font-weight: bold;
+  margin-top: 140px;
 
   @media(max-width: 767px) {
     font-size: 42px;
@@ -176,7 +177,7 @@ const ScheduleAppointmentContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1000px;
   margin-top: 80px;
 
   @media(max-width: 767px) {
@@ -234,8 +235,11 @@ const MadeInIndiaBadge = styled(MadeInIndiaCircularBadge)`
 `;
 
 
-const CopyrightText = styled.p`
+const CopyrightText = styled.h4`
   font-size: 20px;
   margin-top: 140px;
+  font-weight: 400;
 `;
+
+
 export default Footer;

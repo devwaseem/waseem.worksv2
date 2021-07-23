@@ -7,7 +7,7 @@ html, body {
   margin: 0;
 }
 
-input {
+input, select {
   -webkit-appearance: none !important;
   border-radius: 0;
 }

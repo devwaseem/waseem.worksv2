@@ -29,6 +29,7 @@ const Container = styled.div`
   align-items: center;
   padding-right: 12px;
   padding-left: 12px;
+  user-select: none;
 `
 
 const Text = styled.p`
