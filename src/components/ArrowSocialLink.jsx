@@ -12,8 +12,8 @@ const ArrowSocialLink = ({text, url, className}) => (
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M7 1.00011L1 7" stroke="#58585F" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M7 5.99998L7 1.00008L2 1.00008" stroke="#58585F" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M7 1.00011L1 7" stroke="black" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M7 5.99998L7 1.00008L2 1.00008" stroke="black" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
     </ArrowContainer>
     <Text>{text}</Text>
   </Container>
@@ -33,7 +33,7 @@ const ArrowContainer = styled.svg`
 `
 
 const Text = styled.p`
-  color: #58585F;
+  color: black;
   font-size: 20px;
   margin-left: 16px;
 `;

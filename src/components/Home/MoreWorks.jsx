@@ -4,6 +4,7 @@ import ParticlesGIF from '../../images/particles.gif'
 import ConfettiCheckoutGIF from '../../images/confetti-project.gif'
 import KineticClockGIF from '../../images/kinetic-clock.gif'
 import openInNewTab from '../../Utilities/openInNewTab'
+import { motion } from 'framer-motion';
 
 const MoreWorks = () => {
   return (
@@ -51,6 +52,7 @@ const MoreWorks = () => {
 }
 
 const WorksListCell = ({ title, type, source, imageSrc, imageWidth=400, imageHeight=400, onClick }) => {
+  const [isHovering, setIsHovering] = useState(false)
   return (
     <WorksListCellContainer 
       data-cursor-type="image"
@@ -58,6 +60,8 @@ const WorksListCell = ({ title, type, source, imageSrc, imageWidth=400, imageHei
       data-cursor-image-width={imageWidth}
       data-cursor-image-height={imageHeight}
       onClick={onClick}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
     >
       <WorkListContentContainer>
         <ProjectNameText>
@@ -69,7 +73,10 @@ const WorksListCell = ({ title, type, source, imageSrc, imageWidth=400, imageHei
           <ProjectDataText>{source}</ProjectDataText>
         </ProjectDataContainer>
       </WorkListContentContainer>
-      <Arrow viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <Arrow 
+        animate={{ rotate: isHovering ? 45 : 0 }}
+        viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg"
+      >
         <path d="M7 1.00011L1 7" stroke="black" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M7 5.99998L7 1.00008L2 1.00008" stroke="black" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
       </Arrow>
@@ -137,7 +144,7 @@ const WorksListCellContainer = styled.div`
   margin-top: 50px;
 `;
 
-const Arrow = styled.svg`
+const Arrow = styled(motion.svg)`
   width: 26px;
   height: 26px;
   @media(max-width: 767px) {

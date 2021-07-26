@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
 import ArrowSocialLink from './ArrowSocialLink';
-import SendEnquiryButton from './SendEnquiryButton'
 import MadeInIndiaCircularBadge from './MadeInIndiaCircularBadge';
+import ScheduleAppointment from './ScheduleAppointment'
 
 const Footer = ({ scrollOffset }) => {
 
@@ -42,59 +42,11 @@ const Footer = ({ scrollOffset }) => {
           Chennai, IN
         </LocationText>
         <LocationText>
-          7M52464X+C5
+          13.0827° N, 80.2707° E
         </LocationText>
       </LocationContainer>
-
-      <ScheduleAppointmentText>
-        Schedule an Appointment
-      </ScheduleAppointmentText>
-      <ScheduleAppointmentContainer>
-        <AppointmentText>
-          Hey,
-        </AppointmentText>
-        <AppointmentText>
-          my
-        </AppointmentText>
-        <AppointmentText>
-          name
-        </AppointmentText>
-        <AppointmentText>
-          is
-        </AppointmentText>
-        <AppointmentInput 
-        />
-        <AppointmentText>
-          and
-        </AppointmentText>
-        <AppointmentText>
-          I’m
-        </AppointmentText>
-        <AppointmentText>
-          looking 
-        </AppointmentText>
-        <AppointmentText>
-          for
-        </AppointmentText>
-        <AppointmentPicker>
-          <option> </option>
-          <option>iOS App</option>
-          <option>Webflow website</option>
-        </AppointmentPicker>
-        <AppointmentText>
-          Get in touch with me at
-        </AppointmentText>
-        <AppointmentInput 
-          
-        />
-        <AppointmentText>
-          !
-        </AppointmentText>
-      </ScheduleAppointmentContainer>
-      <SendEnquiryButton 
-        text="SEND ENQUIRY"
-      />
-
+      <ScheduleAppointment />
+      
       <MadeInIndiaBadge scrollOffset={scrollOffset} />
 
       <CopyrightText>
@@ -136,7 +88,7 @@ const EmailText = styled.p`
 const EmailAddressText = styled.a`
   font-size: 22px;
   font-weight: 400;
-  color: #58585F;
+  color: black;
 `
 
 const SocialMediaLinksContainer = styled.div`
@@ -154,7 +106,7 @@ const LocationContainer = styled.div`
 `;
 
 const LocationText = styled.p`
-  color: #58585F;
+  color: black;
   font-size: 18px;
   font-weight: 400;
   margin: 0;
@@ -162,72 +114,6 @@ const LocationText = styled.p`
 `;
 
 
-const ScheduleAppointmentText = styled.h2`
-  font-size: 52px;
-  font-weight: bold;
-  margin-top: 140px;
-
-  @media(max-width: 767px) {
-    font-size: 42px;
-  }
-`;
-
-const ScheduleAppointmentContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  max-width: 1000px;
-  margin-top: 80px;
-
-  @media(max-width: 767px) {
-    font-size: 42px;
-    margin-top: 60px;
-  }
-`
-
-const AppointmentText = styled.p`
-  font-size: 24px;
-  padding-left: 3px;
-  padding-right: 3px;
-  font-weight: 500;
-`;
-
-const AppointmentInput = styled.input`
-  font-size: 24px;
-  font-weight: 500;
-  max-width: 600px;
-  min-width: 200px; 
-  border: 0;
-  border-bottom: 2px solid black;
-  margin-left: 8px;
-  margin-right: 8px;
-  height: 32px;
-  padding-bottom: 0px;
-
-  &:focus{
-    outline: none;
-  }
-
-`
-
-const AppointmentPicker = styled.select`
-  font-size: 24px;
-  font-weight: 500;
-  max-width: 600px;
-  min-width: 200px; 
-  border: 0;
-  border-bottom: 2px solid black;
-  margin-left: 8px;
-  margin-right: 8px;
-  height: 32px;
-  padding-bottom: 0px;
-  
-  &:focus{
-    outline: none;
-    cursor: pointer;
-  }
-`
 const MadeInIndiaBadge = styled(MadeInIndiaCircularBadge)`
   width: 100px;
   height: 100px;

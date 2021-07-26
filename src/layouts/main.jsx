@@ -75,11 +75,11 @@ const MainLayout = ({children, RevealView}) => {
         </LeftBar>
         <ContentContainer data-scroll-section>
         <TopNavBar>
-          <NavLink 
+          {/* <NavLink 
             to='/' 
             data-cursor-type="hover" >
             about
-          </NavLink>
+          </NavLink> */}
           <NavButton
             data-cursor-type="hover" 
             onClick={() => scroll?.scrollTo('#footer')}
