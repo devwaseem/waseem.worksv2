@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import SEO from '../components/seo';
 import { Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
@@ -9,6 +9,7 @@ import LinkTextWithArrow from '../components/LinkTextWithArrow';
 import Cursor from '../components/Cursor'
 import Footer from '../components/footer';
 import { AnimatePresence, motion } from 'framer-motion';
+import useDeviceDetect from '../Utilities/useDeviceDetect'
 
 var scroll;
 const MainLayout = ({children, RevealView}) => {
@@ -16,7 +17,14 @@ const MainLayout = ({children, RevealView}) => {
   const [percentageScrolled, setPercentageScrolled] = useState(0);
   const containerRef = useRef(null);
   const [isRevealComplete, setRevealComplete] = useState(false);
-  
+
+  const { isMobile } = useDeviceDetect();
+  const [hasMounted, setHasMounted] = useState(false);
+
+  React.useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
   useEffect(() => {
     if (typeof window === 'undefined') {
       return;
@@ -49,6 +57,10 @@ const MainLayout = ({children, RevealView}) => {
 
   }, []);
 
+  if (!hasMounted) {
+    return null;
+  }
+
   return (
     <>
       {
@@ -56,7 +68,10 @@ const MainLayout = ({children, RevealView}) => {
         <RevealView onRevealComplete={() => setRevealComplete(true)}/>
       }
       <SEO title="Waseem | iOS Developer" ></SEO>
-      <Cursor/>
+      {
+        !isMobile && 
+        <Cursor/>
+      }
       <AppContainer 
         ref={containerRef}
         data-scroll-container

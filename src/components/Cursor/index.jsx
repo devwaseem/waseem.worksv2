@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react'
 import {useLocation} from '@reach/router'
 import classNames from "classnames";
 import './index.css'
-import {isMobile} from 'react-device-detect';
 import TopRightArrow from '../../images/arrow-top-right.svg'
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -116,10 +115,6 @@ const Cursor = () => {
       var position = {x: e.clientX, y: e.clientY}
       setPosition(position);
     };                                                               
-
-    if(isMobile) {
-      return null;
-    }
 
     return <div id="cursor">
             <div className={cursorClasses}

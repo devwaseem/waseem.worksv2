@@ -9,10 +9,11 @@
   ],
   "scripts": {
     "develop": "gatsby develop",
-    "start": "gatsby develop",
+    "start": "gatsby develop -H 0.0.0.0",
     "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "serve": "gatsby serve -H 0.0.0.0",
+    "clean": "gatsby clean",
+    "buildserve": "gatsby build && gatsby serve -H 0.0.0.0"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
