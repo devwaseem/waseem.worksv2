@@ -160,6 +160,10 @@ const LeftBar = styled.div`
   position: fixed;
   display: flex;
   flex-direction: column;
+  @media(max-width: 479px) {
+    top: 6vh;
+    zIndex: 999;
+  }
 `;
 
 const ProgressBarContainer = styled.div`
