@@ -89,7 +89,7 @@ const ScheduleAppointment = () => {
   return (
     <Container>
       <ScheduleAppointmentText>
-            Schedule an 30 min Meeting
+            Schedule a Free 30 min call.
       </ScheduleAppointmentText>
       
       <SendEnquiryButton 
@@ -163,7 +163,7 @@ const Container = styled.div`
 
 const ScheduleAppointmentText = styled.h2`
   font-size: 52px;
-  font-weight: bold;
+  font-weight: 500;
   @media(max-width: 767px) {
     font-size: 42px;
   }

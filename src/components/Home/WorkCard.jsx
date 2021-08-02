@@ -1,23 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from "styled-components";
-
+import { motion } from 'framer-motion';
 
 const WorkCard = ({ className, projectName, projectImage, onClick, projectType, ...rest }) => {
+  const [isHovering, setHovering] = useState(false);
   return (
     <Container 
       className={className} 
       {...rest}
       data-cursor-type='hover'
       onClick={onClick}
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
     >
       <CardImageContainer>
-        <CardImage 
+        <CardImage
           src={projectImage}
+          animate={{ scale: isHovering ? 1 : 1.05 }}
+          transition={{ duration: 0.5 }}
         />
-        <ProjectTypeTextContainer>
-          <ProjectTypeText>{projectType}</ProjectTypeText>
-        </ProjectTypeTextContainer>
       </CardImageContainer>
+      <ProjectTypeTextContainer>
+        <ProjectTypeText>{projectType}</ProjectTypeText>
+      </ProjectTypeTextContainer>
       <ProjectNameText>{projectName}</ProjectNameText>
     </Container>
   )
@@ -34,9 +39,10 @@ const CardImageContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 `;
 
-const CardImage = styled.img`
+const CardImage = styled(motion.img)`
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -76,7 +82,7 @@ const ProjectNameText = styled.p`
   margin: 0px;
   font-size: 22px;
   font-weight: bold;
-  margin-top: 8px;
+  margin-top: 12px;
 `
 
 export default WorkCard;

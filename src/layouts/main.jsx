@@ -199,7 +199,7 @@ const ContactButton = styled.div`
   transform: rotate(-90deg);
   align-items: center;
   white-space: nowrap;
-  font-weight: 500;
+  font-weight: 500;  
 `;
 
 const ContentContainer = styled.div`

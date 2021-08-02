@@ -66,7 +66,7 @@ const Container = styled.section`
 
 const CurrentlyAvailableText = styled.h2`
   font-size: 52px;
-  font-weight: bold;
+  font-weight: 500;
   max-width: 750px;
 
   @media(max-width: 767px) {
@@ -79,14 +79,14 @@ const CurrentlyAvailableText = styled.h2`
 `
 
 const EmailText = styled.p`
-  font-size: 22px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 500;
   margin-bottom: 12px;
-  margin-top: 24px;
+  margin-top: 32px;
 `;
 
 const EmailAddressText = styled.a`
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 400;
   color: black;
 `
@@ -121,8 +121,9 @@ const MadeInIndiaBadge = styled(MadeInIndiaCircularBadge)`
 `;
 
 
-const CopyrightText = styled.h4`
-  font-size: 20px;
+const CopyrightText = styled.p`
+  font-size: 18px;
+  font-weight: bold;
   margin-top: 140px;
   font-weight: 400;
 `;

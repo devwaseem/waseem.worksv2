@@ -46,30 +46,24 @@ const HiEmoji = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 59px;
-  font-weight: bold;
+  font-size: 70px;
+  font-weight: 500;
   margin-top: 40px;
-  max-width: 800px;
+  max-width: 1200px;
   line-height: 1.2;
 
   @media(max-width: 479px) {
     font-size: 32px;
   }
-
-  @media(max-width: 767px) {
-
-  }
-
-  @media(max-width: 991px) {
-
-  }
 `;
 
 const Description = styled.p`
+  color: rgb(28,28,28);
   margin-top: 46px;
   font-size: 22px;
   max-width: 750px;
   line-height: 34px;
+  font-weight: 400;
   @media(max-width: 479px) {
     font-size: 18px;
     line-height: 28px;
@@ -77,10 +71,11 @@ const Description = styled.p`
 `
 
 const HowCanIHelpText = styled.p`
+  color: rgb(28,28,28);
   margin-top: 22px;
   font-size: 22px;
   max-width: 850px;
-  line-height: 34px;
+  line-height: 28px;
   margin-bottom: 60px;
   @media(max-width: 479px) {
     font-size: 18px;
@@ -95,8 +90,10 @@ const TextLink = styled.a`
 `;
 
 const EmailLink = styled.a`
-  font-size: 22px;
+  font-size: 26px;
   line-height: 34px;
+  font-weight: 500;
+  color: rgb(28,28,28);
   color: black;
   ${'' /* @media (prefers-color-scheme: dark) {
     color: white;

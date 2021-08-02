@@ -53,11 +53,10 @@ const SelectedWorks = () => (
 
 const Title = styled.h2`
   margin-top: 100px;
-  font-size: 160px;
+  font-size: 172px;
   font-weight: bold;
   max-width: 800px;
   line-height: 1.2;
-
   @media(max-width: 767px) {
     font-size: 60px;
   }
@@ -75,8 +74,10 @@ const TitleSecondLine = styled.span`
 `
 
 const Description = styled.p`
-  font-size: 16px;
+  font-size: 20px;
   color: #58585F;
+  font-weight: 400;
+  line-height: 1.6;
   
 `
 

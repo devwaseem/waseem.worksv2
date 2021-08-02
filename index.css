@@ -15,7 +15,8 @@ input, select {
 
 * {
   cursor: none;
-  font-family: 'CircularStd', 'system-ui';
+  /* font-family: 'CircularStd', 'system-ui'; */
+  font-family: 'TTCommons', 'system-ui', 'sans';
 }
 
 a {
