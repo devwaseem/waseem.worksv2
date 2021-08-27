@@ -81,7 +81,7 @@ const ProjectNameText = styled.p`
   padding: 0px;
   margin: 0px;
   font-size: 22px;
-  font-weight: bold;
+  font-weight: 500;
   margin-top: 12px;
 `
 

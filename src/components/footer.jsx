@@ -25,15 +25,15 @@ const Footer = ({ scrollOffset }) => {
         />
         <ArrowSocialLinkStyled
           text="TWITTER"
-          url="https://github.com/devwaseem"
+          url="https://twitter.com/iamwaseem99"
         />
         <ArrowSocialLinkStyled
           text="INSTAGRAM"
-          url="https://github.com/devwaseem"
+          url="https://www.instagram.com/dvlp.er/"
         />
         <ArrowSocialLinkStyled
           text="LINKEDIN"
-          url="https://github.com/devwaseem"
+          url="https://www.linkedin.com/in/devwaseem/"
         />
       </SocialMediaLinksContainer>
 
